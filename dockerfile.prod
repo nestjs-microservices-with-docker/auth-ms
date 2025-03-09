@@ -14,6 +14,8 @@ FROM node:22-alpine3.19 as build
 
 WORKDIR /usr/src/app
 
+COPY --from=deps /usr/src/app/package*.json ./
+
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 
 COPY . .
